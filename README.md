@@ -48,6 +48,10 @@ Docker works by using a combination of containerization technology and a client-
 
 ## What is Docker compose ?
 
+<p align="center">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivco_6jo5d9c71_Usoq8-JAOS7Qqk0Z9b2xexVeR_nMMiScGJvaIXCw2t-GpSYxw4f3a0VYEMM8Sog7kduAz5X6qT8REnUGSjyh4SS1H1a-w6uME-fFhEz4uU09WvMNs3CumEuYHPmlxGn2bk1EiLGTw6eaZAXFXJk_q2qBBpGMXs8m_i7Oo_8e8-D/s2986/Flowchart.jpg">
+</p>
+
 ## TO DO LIST ✅.
 > In order to finish the project smoothly, I decided to partition the tasks to do one after the other.
 
