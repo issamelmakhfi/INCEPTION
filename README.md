@@ -48,6 +48,8 @@ Docker works by using a combination of containerization technology and a client-
 
 ## What is Docker compose ?
 
+Docker Compose is a tool that assists in defining and sharing multi-container applications. By using Compose, we can define the services in a YAML file, as well as spin them up and tear them down with one single command.
+
 <p align="center">
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivco_6jo5d9c71_Usoq8-JAOS7Qqk0Z9b2xexVeR_nMMiScGJvaIXCw2t-GpSYxw4f3a0VYEMM8Sog7kduAz5X6qT8REnUGSjyh4SS1H1a-w6uME-fFhEz4uU09WvMNs3CumEuYHPmlxGn2bk1EiLGTw6eaZAXFXJk_q2qBBpGMXs8m_i7Oo_8e8-D/s2986/Flowchart.jpg">
 </p>
