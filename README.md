@@ -1,4 +1,7 @@
 # Inception 🕟
+<p aligne="center">
+<img src="https://alphaville.github.io/optimization-engine/img/docker.gif">
+ </p>
 
 ## What is Docker ?
 
