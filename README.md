@@ -19,11 +19,11 @@ For example : `[docker pull Oracle]`
 
 When you type the command docker pull `oracle` in your terminal, Docker will start by contacting the Docker registry to check if there is an available image for the oracle operating system. If there is an image available, Docker will download the image and store it on your local machine.
 
-1 - Docker client sends a request to the Docker daemon to pull the centos image from the default registry.
-2 - Docker daemon searches the registry for the centos image and checks if there is a more recent version of the image available.
-3 - If the image is not found locally, Docker daemon downloads the latest version of the centos image from the registry.
-4 - The centos image is downloaded in layers. Each layer represents a change to the file system of the container. Docker downloads only the layers that are not already present on your local machine, which makes the download process faster and more efficient.
-5 - Once the download is complete, Docker daemon stores the image in your local Docker image cache. The image can now be used to create containers based on the centos operating system.
+1 - Docker client sends a request to the Docker daemon to pull the centos image from the default registry.<br>
+2 - Docker daemon searches the registry for the centos image and checks if there is a more recent version of the image available.<br>
+3 - If the image is not found locally, Docker daemon downloads the latest version of the centos image from the registry.<br>
+4 - The centos image is downloaded in layers. Each layer represents a change to the file system of the container. Docker downloads only the layers that are not already present on your local machine, which makes the download process faster and more efficient.<br>
+5 - Once the download is complete, Docker daemon stores the image in your local Docker image cache. The image can now be used to create containers based on the centos operating system.<br>
 
 ## What is component of Docker ?
 
