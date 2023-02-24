@@ -32,6 +32,11 @@ When you type the command docker pull `oracle` in your terminal, Docker will sta
 
 ## What is component of Docker ?
 
+<p align="center">
+ <img src="https://miro.medium.com/max/678/1*uGdDnHQq6NVMcSO0DKAVAw.png">
+ </p>
+ 
+
 ## What is Docker compose ?
 
 
