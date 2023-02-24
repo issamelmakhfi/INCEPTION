@@ -7,6 +7,18 @@
 
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
 
+## Docker VS VMs.
+
+<p align="center">
+ <img src="https://assets-global.website-files.com/5efc3ccdb72aaa7480ec8179/5f03f585f55f79c8b17ae7d2_containers-blog.png">
+</p>
+
+Docker and virtual machines are both technologies used for running multiple isolated environments on a single physical machine, but they use different approaches to achieve isolation.
+
+🖇 Virtual machines use a hardware abstraction layer (hypervisor) to create multiple virtual machines (VMs) on a single physical host. Each VM runs a full operating system (OS) with its own kernel, which means that each VM requires its own resources, including memory, disk space, and CPU cycles. VMs provide a high degree of isolation between different environments, but they can be resource-intensive and have longer startup times.
+
+🖇 Docker, on the other hand, uses containerization technology to provide isolated environments on a single host without the need for a hypervisor. Containers share the host machine's kernel and use a layered file system to provide a lightweight, isolated environment for applications. Because containers do not require a full operating system, they are more resource-efficient than VMs and can start up much faster.
+
 ## How Docker work ?
 
 Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. Another Docker client is Docker Compose, that lets you work with applications consisting of a set of containers.
