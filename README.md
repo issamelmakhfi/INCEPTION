@@ -35,10 +35,18 @@ When you type the command docker pull `oracle` in your terminal, Docker will sta
 <p align="center">
  <img src="https://miro.medium.com/max/678/1*uGdDnHQq6NVMcSO0DKAVAw.png">
  </p>
- 
+
+Docker works by using a combination of containerization technology and a client-server architecture to package and manage applications. Here are the key components of how Docker works:
+
+1 - Docker Engine: This is the core component of Docker that runs on the host machine and manages the containers. Docker Engine consists of three main parts: a server, a REST API, and a command-line interface (CLI). The server listens for commands from the Docker CLI or the REST API, and then creates, starts, stops, or removes containers as needed.
+
+2 - Docker Image: A Docker image is a read-only template that contains all the necessary files, libraries, and dependencies to run an application. Docker images are created using a Dockerfile, which is a text file that specifies the configuration and settings needed to build the image. Once an image is built, it can be shared and reused across different machines.
+
+3 - Docker Container: A Docker container is a runnable instance of a Docker image. Containers are isolated from each other and from the host system, which means that applications running inside a container are self-contained and do not interfere with other containers or the host environment. Docker containers can be started, stopped, or restarted as needed, and they can be configured to use specific resources such as CPU, memory, and network bandwidth.
+
+4 - Docker Registry: A Docker registry is a repository for storing and sharing Docker images. Docker Hub is the most popular public Docker registry, but organizations can also set up their own private registries to store and manage their own images.
 
 ## What is Docker compose ?
-
 
 ## TO DO LIST ✅.
 > In order to finish the project smoothly, I decided to partition the tasks to do one after the other.
