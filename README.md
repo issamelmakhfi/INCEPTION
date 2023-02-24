@@ -58,7 +58,7 @@ Docker Compose is a tool that assists in defining and sharing multi-container ap
 > In order to finish the project smoothly, I decided to partition the tasks to do one after the other.
 
 Here's the divided tasks for the project.
-- [ ] Introduction to docker.
+- [x] Introduction to docker.
 - [x] [Create a Dockerfile to build the NGINX image and enabling SSL with openssl](#create-dockerfile-for-nginx-and-enable-ssl)
 - [ ] Create a Dockerfile to build the WordPress image. Also install php-fpm within the same container.
 - [ ] Create 2 volumes. One for the database, and the other for the files of our website.
