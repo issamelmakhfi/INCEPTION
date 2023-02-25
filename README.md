@@ -81,3 +81,7 @@ Here's the divided tasks for the project.
 # Let's get to work
 ## Create Dockerfile for NGINX and Enable SSL
 As said before, we will be using `debian:stable` image as a base image for all our docker containers.
+
+## Source :
+
+<a href="https://www.youtube.com/watch?v=gAkwW2tuIqE">Docker in 7 easy steps</a>
