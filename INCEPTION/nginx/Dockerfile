@@ -16,5 +16,4 @@ RUN bash script.sh
 COPY ./default.conf /etc/nginx/sites-enabled/default
 COPY ./Netflix-Website-Project /usr/share/nginx/
 
-# 
 ENTRYPOINT  ["nginx", "-g", "daemon off;"]
