@@ -1,5 +1,10 @@
-FROM    debian:stable
+FROM debian:stable
 
-RUN apt-get update && apt-get -y install mariadb-server
+RUN apt-get update && apt-get upgrade && apt-get -y install mariadb-server
 
-ENTRYPOINT ["service", "mariadb", "start"]
+COPY ./script.sh /home/script.sh
+
+RUN bash /home/script.sh
+
+ENTRYPOINT [ "mysqld" ]
+# ENTRYPOINT ["service", "mariadb", "start"]
