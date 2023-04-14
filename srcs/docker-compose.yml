@@ -1,0 +1,10 @@
+services:
+  my_nginx:
+    container_name: my_nginx_container
+    build: ./requirements/nginx
+    ports:
+      - "8888:443"
+  my_wrodpress:
+    build: ./requirements/wordpress
+  my_mariadb:
+    build: ./requirements/mariadb
