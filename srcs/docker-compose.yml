@@ -4,8 +4,9 @@ services:
     build: ./requirements/nginx
     ports:
       - "8888:443"
-  my_wrodpress:
-    build: ./requirements/wordpress
+  # my_wrodpress:
+  #   build: ./requirements/wordpress
   my_mariadb:
-    container_name: my_mariadb_container
+    container_name: my_mariadb_container1
     build: ./requirements/mariadb
+    restart: always
