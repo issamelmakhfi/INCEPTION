@@ -7,4 +7,5 @@ services:
   my_wrodpress:
     build: ./requirements/wordpress
   my_mariadb:
+    container_name: my_mariadb_container
     build: ./requirements/mariadb
