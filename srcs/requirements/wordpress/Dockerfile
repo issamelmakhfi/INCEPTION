@@ -6,3 +6,7 @@ RUN     apt-get update && apt-get upgrade -y && apt install -y wget  \
 WORKDIR /var/www/html
 
 RUN     wget http://wordpress.org/latest.tar.gz && tar xfz latest.tar.gz && rm -rf latest.tar.gz
+
+RUN     mkdir /run/php
+
+CMD [ "php-fpm7.4" , "-F" ]

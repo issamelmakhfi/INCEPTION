@@ -3,10 +3,35 @@ services:
     container_name: my_nginx_container
     build: ./requirements/nginx
     ports:
+      - "8000:80"
       - "8888:443"
-  # my_wrodpress:
-  #   build: ./requirements/wordpress
+    volumes:
+     - :/usr/share/nginx
+    # links:
+    #   - my_wordpress
   my_mariadb:
-    container_name: my_mariadb_container1
+    container_name: my_mariadb_container
     build: ./requirements/mariadb
     restart: always
+    environment:
+      - DB_NAME=wordpress_db1
+      - DB_USER=wordpress_admin
+      - DB_PASSWORD=120701A
+  my_wordpress:
+    container_name: my_wordpress_container
+    build: ./requirements/wordpress
+    depends_on:
+      - my_mariadb
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=my_mariadb:3306
+      - WORDPRESS_DB_USER=wordpress_admin
+      - WORDPRESS_DB_PASSWORD=testrrr
+      - WORDPRESS_DB_NAME=wordpress_db
+    # ports:
+    #   - "8000:80"
+    volumes:
+     - ./requirements/wordpress:/var/www/html
+    #  - ./wordpress:/var/www/html
+# volumes:
+#   wordpress_data:
