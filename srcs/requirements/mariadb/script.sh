@@ -1,9 +1,5 @@
 #!bin/bash
 
-DB_NAME=wordpress_db1
-DB_USER=wordpress_admin
-DB_PASSWORD=120701A
-
 # Starting mariadb service
 service mariadb start
 #sleep for 1 sec to avoid some message problems

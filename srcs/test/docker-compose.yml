@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  mysql:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345A
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_pass
+    restart: always
+  wordpress:
+    image: wordpress:php8.2-fpm
+    volumes:
+    - wp_files:/var/www/html
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234A
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: db_name
+      WORDPRESS_DB_USER: user_name
+      WORDPRESS_DB_PASSWORD: user_pass
+      # WORDPRESS_TABLE_PREFIX: wp_
+    links:
+      - mysql
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "7771:80"
+    depends_on:
+      - wordpress
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - wp_files:/var/www/html
+volumes:
+    wp_files:

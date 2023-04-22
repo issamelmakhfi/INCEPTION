@@ -1,6 +1,6 @@
 # Pull lastest version of debian image from regestry
 
-FROM debian:bullseye
+FROM debian:latest
 
 # Copy script that generate certificate to set up SSl for nginx
 COPY ./script.sh /script.sh
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y curl && apt -y install nginx && apt -y 
 RUN bash script.sh
 
 # Copy nginx config file that already add SSL to nginx
-COPY ./default.conf /etc/nginx/sites-enabled/default
-COPY ./index.html /usr/share/nginx/
+# COPY ./default.conf /etc/nginx/sites-enabled/default
+# COPY ./index.html /usr/share/nginx/
 
 ENTRYPOINT  ["nginx", "-g", "daemon off;"]

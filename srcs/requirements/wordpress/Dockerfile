@@ -1,12 +1,23 @@
-FROM    debian:stable
+FROM    debian:latest
 
 RUN     apt-get update && apt-get upgrade -y && apt install -y wget  \
-        && apt-get install -y php php-fpm
+        && apt-get install -y php php-fpm php-mysql
 
 WORKDIR /var/www/html
 
 RUN     wget http://wordpress.org/latest.tar.gz && tar xfz latest.tar.gz && rm -rf latest.tar.gz
 
-RUN     mkdir /run/php
+WORKDIR /var/www/html/wordpress
 
-CMD [ "php-fpm7.4" , "-F" ]
+RUN     mv * ../
+
+
+RUN     mkdir /run/php && chown www-data:www-data /run/php
+
+RUN     service php7.4-fpm start
+
+EXPOSE 9000
+
+# ENTRYPOINT ["service", "php7.4-fpm", "start"]
+
+ENTRYPOINT [ "php-fpm7.4" , "-F" ]
