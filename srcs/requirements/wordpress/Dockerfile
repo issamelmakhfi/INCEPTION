@@ -18,7 +18,7 @@ RUN     service php7.4-fpm start
 
 COPY    ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
-EXPOSE 9000
+# EXPOSE 9000
 
 # ENTRYPOINT ["service", "php7.4-fpm", "start"]
 

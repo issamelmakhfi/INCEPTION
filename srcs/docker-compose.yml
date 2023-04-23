@@ -20,25 +20,27 @@ services:
     links:
       - my_mariadb
     networks:
-      - unix
+      - internal
     restart: always
+    ports:
+      - "9000:9000"
   my_nginx:
     container_name: my_nginx_container
     build: ./requirements/nginx
     ports:
       - "8000:80"
-    # depends_on:
-    #   - my_wordpress
+    depends_on:
+      - my_wordpress
     volumes:
      - ./requirements/nginx/conf.d/:/etc/nginx/conf.d
      - ./requirements/nginx/logs:/var/log/nginx
      - wordpressV:/var/www/html
-    links:
-     - my_wordpress
+    # links:
+    #  - my_wordpress
     networks:
-      - unix
+      - internal
 volumes:
   wordpressV:
 networks:
-  unix:
+  internal:
     driver: bridge

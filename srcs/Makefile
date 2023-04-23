@@ -26,3 +26,4 @@ fclean: clean
 
 vclean: fclean
 	docker volume rm srcs_wordpressV
+	docker network rm srcs_unix
