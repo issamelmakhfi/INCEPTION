@@ -19,16 +19,26 @@ services:
       - WORDPRESS_DB_NAME=wordpress_db
     links:
       - my_mariadb
+    networks:
+      - unix
     restart: always
   my_nginx:
     container_name: my_nginx_container
     build: ./requirements/nginx
     ports:
-      - "9888:80"
-    depends_on:
-      - my_wordpress
+      - "8000:80"
+    # depends_on:
+    #   - my_wordpress
     volumes:
      - ./requirements/nginx/conf.d/:/etc/nginx/conf.d
+     - ./requirements/nginx/logs:/var/log/nginx
      - wordpressV:/var/www/html
+    links:
+     - my_wordpress
+    networks:
+      - unix
 volumes:
   wordpressV:
+networks:
+  unix:
+    driver: bridge

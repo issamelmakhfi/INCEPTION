@@ -12,9 +12,11 @@ WORKDIR /var/www/html/wordpress
 RUN     mv * ../
 
 
-RUN     mkdir /run/php && chown www-data:www-data /run/php
+# RUN     mkdir /run/php && chown www-data:www-data /run/php
 
 RUN     service php7.4-fpm start
+
+COPY    ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 EXPOSE 9000
 
