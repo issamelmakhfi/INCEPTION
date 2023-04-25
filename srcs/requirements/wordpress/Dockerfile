@@ -9,7 +9,13 @@ RUN     wget http://wordpress.org/latest.tar.gz && tar xfz latest.tar.gz && rm -
 
 WORKDIR /var/www/html/wordpress
 
+COPY     ./wp-config.php wp-config.php
+
+RUN     rm -rf wp-config-sample.php
+
 RUN     mv * ../
+
+
 
 
 # RUN     mkdir /run/php && chown www-data:www-data /run/php

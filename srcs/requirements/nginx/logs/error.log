@@ -22,3 +22,24 @@
 2023/04/24 15:33:00 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.2:9000", host: "localhost:8000"
 2023/04/24 19:17:09 [error] 7#7: *1 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/wp-admin/setup-config.php"
 2023/04/25 03:35:33 [error] 8#8: *4 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/wp-admin/setup-config.php"
+2023/04/25 03:58:52 [error] 7#7: *1 directory index of "/var/www/html/wordpress/" is forbidden, client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/25 04:12:53 [error] 8#8: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to undefined function wp() in /var/www/html/wp-blog-header.php:16
+Stack trace:
+#0 /var/www/html/index.php(17): require()
+#1 {main}
+  thrown in /var/www/html/wp-blog-header.php on line 16" while reading upstream, client: 172.24.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.24.0.3:9000", host: "localhost:8000"
+2023/04/25 04:14:46 [error] 7#7: *2 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to undefined function wp() in /var/www/html/wp-blog-header.php:16
+Stack trace:
+#0 /var/www/html/index.php(17): require()
+#1 {main}
+  thrown in /var/www/html/wp-blog-header.php on line 16" while reading upstream, client: 172.25.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.25.0.3:9000", host: "localhost:8000"
+2023/04/25 04:14:47 [error] 7#7: *2 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to undefined function wp() in /var/www/html/wp-blog-header.php:16
+Stack trace:
+#0 /var/www/html/index.php(17): require()
+#1 {main}
+  thrown in /var/www/html/wp-blog-header.php on line 16" while reading upstream, client: 172.25.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.25.0.3:9000", host: "localhost:8000"
+2023/04/25 04:14:47 [error] 7#7: *2 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to undefined function wp() in /var/www/html/wp-blog-header.php:16
+Stack trace:
+#0 /var/www/html/index.php(17): require()
+#1 {main}
+  thrown in /var/www/html/wp-blog-header.php on line 16" while reading upstream, client: 172.25.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.25.0.3:9000", host: "localhost:8000"

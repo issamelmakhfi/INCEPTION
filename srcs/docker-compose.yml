@@ -4,10 +4,10 @@ services:
     build: ./requirements/mariadb
     restart: always
     environment:
-      - DB_NAME=wordpress_db
-      - DB_USER=wordpress_admin
-      - DB_PASSWORD=120701A
-      - ROOT_PASS=test90
+      DB_NAME: wordpress_db
+      DB_PASSWORD: 120701A
+      DB_USER: wordpress_admin
+      DB_ROOT_PASS: test90
     networks:
       - unix
   my_wordpress:
@@ -15,11 +15,10 @@ services:
     build: ./requirements/wordpress
     volumes:
       - wordpressV:/var/www/html
-      - sockets:/run/php
     depends_on:
       - my_mariadb
     environment:
-      WORDPRESS_DB_HOST: my_mariadb:3306
+      WORDPRESS_DB_HOST: my_mariadb
       WORDPRESS_DB_NAME: wordpress_db
       WORDPRESS_DB_USER: wordpress_admin
       WORDPRESS_DB_PASSWORD: 120701A
@@ -40,7 +39,6 @@ services:
      - ./requirements/nginx/conf.d/:/etc/nginx/conf.d
      - ./requirements/nginx/logs:/var/log/nginx
      - wordpressV:/var/www/html
-     -  sockets:/run/php
     links:
      - my_wordpress
     networks:
