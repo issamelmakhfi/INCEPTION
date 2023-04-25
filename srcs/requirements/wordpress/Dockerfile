@@ -22,4 +22,4 @@ COPY    ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 # ENTRYPOINT ["service", "php7.4-fpm", "start"]
 
-ENTRYPOINT [ "php-fpm7.4" , "-F" ]
+CMD [ "php-fpm7.4" , "-F" ]

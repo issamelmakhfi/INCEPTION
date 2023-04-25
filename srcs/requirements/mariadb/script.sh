@@ -5,6 +5,8 @@ service mariadb start
 #sleep for 1 sec to avoid some message problems
 sleep 1
 
+mariadb -e "GRANT ALL ON *.* to root@'localhost' IDENTIFIED BY '$ROOT_PASS';"
+
 # Creat database for wordpress
 mariadb -e "CREATE DATABASE $DB_NAME;"
 # Creat user and give it privilege to wordpress database
