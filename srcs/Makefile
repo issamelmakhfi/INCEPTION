@@ -9,6 +9,8 @@ all : compose
 compose :
 	docker compose up --build -d
 
+re : vclean all
+
 execn :
 	docker exec -it $(NGINX) bash
 

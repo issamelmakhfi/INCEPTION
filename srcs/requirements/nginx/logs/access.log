@@ -1,0 +1,5 @@
+172.23.0.1 - - [27/Apr/2023:12:43:00 +0000] "GET / HTTP/1.1" 403 187 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+172.23.0.1 - - [27/Apr/2023:12:43:01 +0000] "GET /favicon.ico HTTP/1.1" 404 188 "http://127.0.0.1:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+172.30.0.1 - - [27/Apr/2023:15:46:42 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 17228 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+172.28.0.1 - - [27/Apr/2023:22:14:02 +0000] "GET / HTTP/1.1" 403 187 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+172.28.0.1 - - [27/Apr/2023:22:14:02 +0000] "GET /favicon.ico HTTP/1.1" 404 188 "http://127.0.0.1:4433/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
