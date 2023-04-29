@@ -15,23 +15,14 @@ WORKDIR /var/www/html/wordpress
 
 COPY     ./wp-config.php wp-config.php
 
-# RUN     rm -rf wp-config-sample.php
 
 RUN     mv * ../
 
 COPY    ./test.php test.php
 
-# RUN wp config create --dbname=$WORDPRESS_DB_NAME --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --dbhost=$WORDPRESS_DB_HOST --allow-root
-#J^jZK6$9e#?JRZK
+# RUN     service php7.4-fpm start
 
-# RUN     wp core install --allow-root --url=localhost --title=wordpress --admin_user=wordpress_admin --admin_password=120701A --admin_email=issam.test@gmail.com
-
-
-
-
-# RUN     mkdir /run/php && chown www-data:www-data /run/php
-
-RUN     service php7.4-fpm start
+RUN     mkdir /run/php
 
 COPY    ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
@@ -39,8 +30,17 @@ COPY    ./wp_cmd.sh ../wp_cmd.sh
 
 EXPOSE 9000
 
-# ENTRYPOINT ["service", "php7.4-fpm", "start"]
+# RUN     service php7.4-fpm stop
 
-ENTRYPOINT [ "php-fpm7.4" , "-F" ]
+RUN     chmod +x ../wp_cmd.sh
 
-# CMD [ "bash", "./wp_cmd.sh"]
+# RUN wp core install --allow-root --url=ielmakhf.42.fr --title=wordpress --admin_user=wordpress_admin --admin_password=120701A --admin_email=issam.test@gmail.com --path=/var/www/html --skip-email
+
+
+ENTRYPOINT [ "../wp_cmd.sh"]
+
+
+CMD [ "php-fpm7.4" , "-F"]
+
+# ENTRYPOINT [ "php-fpm7.4" , "-F"]
+# ENTRYPOINT   ["bash", "../wp_cmd.sh "]

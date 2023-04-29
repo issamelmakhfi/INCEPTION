@@ -32,7 +32,7 @@ services:
     container_name: my_nginx_container
     build: ./requirements/nginx
     ports:
-      - "1122:80"
+      - "80:80"
     depends_on:
       - my_wordpress
     volumes:
@@ -46,7 +46,6 @@ services:
     # hostname: nginx1
 volumes:
   wordpressV:
-  sockets:
 networks:
   unix:
     driver: bridge

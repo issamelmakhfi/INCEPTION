@@ -1,6 +1,6 @@
 FROM debian:latest
 
-RUN apt-get update && apt-get upgrade && apt-get -y install mariadb-server
+RUN apt-get update && apt-get upgrade -y && apt-get -y install mariadb-server
 
 COPY ./script.sh /home/script.sh
 
