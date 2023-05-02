@@ -15,7 +15,7 @@ execn :
 	docker exec -it $(NGINX) bash
 
 execw :
-	docker exec -it $(WORDPRESS) /bin/bash
+	docker exec -it $(WORDPRESS) bash
 
 execm :
 	docker exec -it $(DB) bash

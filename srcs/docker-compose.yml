@@ -1,3 +1,4 @@
+version: '3.6'
 services:
   my_mariadb:
     container_name: my_mariadb_container
@@ -17,11 +18,13 @@ services:
       - wordpressV:/var/www/html
     depends_on:
       - my_mariadb
-    environment:
-      WORDPRESS_DB_HOST: my_mariadb
-      WORDPRESS_DB_NAME: wordpress_db
-      WORDPRESS_DB_USER: wordpress_admin
-      WORDPRESS_DB_PASSWORD: 120701A
+    env_file:
+      - .env
+    # environment:
+    #   WORDPRESS_DB_HOST my_mariadb
+    #   WORDPRESS_DB_NAME: wordpress_db
+    #   WORDPRESS_DB_USER: wordpress_admin
+    #   WORDPRESS_DB_PASSWORD: 120701A
     links:
       - my_mariadb
     networks:

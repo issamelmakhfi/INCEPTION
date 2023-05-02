@@ -18,18 +18,34 @@
  * @package WordPress
  */
 
+
+ if (!function_exists('getenv_docker')) {
+	// https://github.com/docker-library/wordpress/issues/588 (WP-CLI will load this file 2x)
+	function getenv_docker($env, $default) {
+		if ($fileEnv = getenv($env . '_FILE')) {
+			return rtrim(file_get_contents($fileEnv), "\r\n");
+		}
+		else if (($val = getenv($env)) !== false) {
+			return $val;
+		}
+		else {
+			return $default;
+		}
+	}
+}
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress_db' );
+define( 'DB_NAME', getenv('WORDPRESS_DB_NAME') );
 
 /** Database username */
-define( 'DB_USER', 'wordpress_admin' );
+define( 'DB_USER', getenv('WORDPRESS_DB_USER') );
 
 /** Database password */
-define( 'DB_PASSWORD', '120701A' );
+define( 'DB_PASSWORD', '120701A');
 
 /** Database hostname */
-define( 'DB_HOST', 'my_mariadb' );
+define( 'DB_HOST', 'my_mariadb');
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );

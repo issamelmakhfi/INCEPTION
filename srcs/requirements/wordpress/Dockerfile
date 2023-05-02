@@ -1,19 +1,22 @@
-FROM    debian:latest
+FROM    debian:buster
 
-RUN     apt-get update && apt-get upgrade -y && apt install -y wget  \
-        && apt-get install -y php php-fpm php-mysql
+RUN     apt-get update && apt install -y wget  \
+        && apt-get install -y php-fpm php-mysql
 
 WORKDIR /var/www/html
 
-RUN     wget http://wordpress.org/latest.tar.gz && tar xfz latest.tar.gz && rm -rf latest.tar.gz
+# RUN     wget http://wordpress.org/latest.tar.gz && tar xfz latest.tar.gz && rm -rf latest.tar.gz
+COPY    ./wp_cmd.sh ./wp_cmd.sh
 
 RUN     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 RUN     chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
-WORKDIR /var/www/html/wordpress
+# WORKDIR /var/www/html/wordpress
 
-COPY     ./wp-config.php wp-config.php
+# COPY     ./wp-config.php wp-config.php
+
+# RUN     rm -rf wp-config-sample.php
 
 
 RUN     mv * ../
@@ -24,11 +27,15 @@ COPY    ./test.php test.php
 
 RUN     mkdir /run/php
 
-COPY    ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY    ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
-COPY    ./wp_cmd.sh ../wp_cmd.sh
 
 EXPOSE 9000
+
+# ENV WORDPRESS_DB_NAME=wordpress_db
+# ENV WORDPRESS_DB_USER=wordpress_admin
+# ENV WORDPRESS_DB_HOST=my_mariadb
+# ENV WORDPRESS_DB_PASSWORD=120701A
 
 # RUN     service php7.4-fpm stop
 
@@ -39,8 +46,7 @@ RUN     chmod +x ../wp_cmd.sh
 
 ENTRYPOINT [ "../wp_cmd.sh"]
 
-
-CMD [ "php-fpm7.4" , "-F"]
+CMD [ "php-fpm7.3" , "-F"]
 
 # ENTRYPOINT [ "php-fpm7.4" , "-F"]
 # ENTRYPOINT   ["bash", "../wp_cmd.sh "]

@@ -1,6 +1,6 @@
 # Pull lastest version of debian image from regestry
 
-FROM debian:latest
+FROM debian:bullseye
 
 # Copy script that generate certificate to set up SSl for nginx
 COPY ./script.sh /script.sh
