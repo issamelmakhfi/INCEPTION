@@ -36,6 +36,7 @@ services:
     build: ./requirements/nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - my_wordpress
     volumes:
@@ -46,6 +47,7 @@ services:
      - my_wordpress
     networks:
       - unix
+    restart: always
     # hostname: nginx1
 volumes:
   wordpressV:
