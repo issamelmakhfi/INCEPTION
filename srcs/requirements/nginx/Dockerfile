@@ -3,10 +3,10 @@
 FROM debian:bullseye
 
 # Copy script that generate certificate to set up SSl for nginx
-COPY ./script.sh /script.sh
+COPY ./tools/script.sh /script.sh
 
 #  Install openssl and nginx
-RUN apt-get update && apt-get install -y curl && apt -y install nginx && apt -y install vim \
+RUN apt-get update && apt-get install -y curl && apt -y install nginx \
     && apt -y install openssl
 
 # run the script to generate CA

@@ -4,13 +4,12 @@ services:
     container_name: my_mariadb_container
     build: ./requirements/mariadb
     restart: always
-    environment:
-      DB_NAME: wordpress_db
-      DB_PASSWORD: 120701A
-      DB_USER: wordpress_admin
-      DB_ROOT_PASS: test90
+    env_file:
+      - ./requirements/mariadb/.env
     networks:
-      - unix
+      - containers_net
+    volumes:
+      - wordpress_db:/var/lib/mysql/
   my_wordpress:
     container_name: my_wordpress_container
     build: ./requirements/wordpress
@@ -19,18 +18,10 @@ services:
     depends_on:
       - my_mariadb
     env_file:
-      - .env
-    # environment:
-    #   WORDPRESS_DB_HOST my_mariadb
-    #   WORDPRESS_DB_NAME: wordpress_db
-    #   WORDPRESS_DB_USER: wordpress_admin
-    #   WORDPRESS_DB_PASSWORD: 120701A
-    links:
-      - my_mariadb
+      - ./requirements/wordpress/.env
     networks:
-      - unix
+      - containers_net
     restart: always
-    # hostname: wordpress1
   my_nginx:
     container_name: my_nginx_container
     build: ./requirements/nginx
@@ -41,16 +32,21 @@ services:
       - my_wordpress
     volumes:
      - ./requirements/nginx/conf.d/:/etc/nginx/conf.d
-     - ./requirements/nginx/logs:/var/log/nginx
      - wordpressV:/var/www/html
-    links:
-     - my_wordpress
     networks:
-      - unix
+      - containers_net
     restart: always
-    # hostname: nginx1
+  my_redis:
+    container_name: my_redis_container
+    build: ./requirements/bonus/redis_cach
+    networks:
+      - containers_net
+    ports:
+      - "6379:6379"
+    restart: always
 volumes:
   wordpressV:
+  wordpress_db:
 networks:
-  unix:
+  containers_net:
     driver: bridge
