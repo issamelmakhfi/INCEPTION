@@ -6,6 +6,10 @@ DB = my_mariadb_container
 
 REDIS = my_redis_container
 
+FTP = my_ftp_container
+
+STATIC_WEB = static_web_container
+
 all : compose
 
 compose :
@@ -23,12 +27,16 @@ execm :
 	docker exec -it $(DB) bash
 execr :
 	docker exec -it $(REDIS) bash
+execf :
+	docker exec -it $(FTP) bash
+execs :
+	docker exec -it $(STATIC_WEB) bash
 
 clean :
-	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS)
+	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB)
 
 fclean: clean
-	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS)
+	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB)
 
 vclean: fclean
 	@docker volume rm srcs_wordpressV

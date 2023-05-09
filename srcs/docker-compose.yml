@@ -44,6 +44,22 @@ services:
     ports:
       - "6379:6379"
     restart: always
+  my_ftp:
+    container_name: my_ftp_container
+    build: ./requirements/bonus/ftp
+    networks:
+      - containers_net
+    restart: always
+  static_web:
+    container_name: static_web_container
+    build: ./requirements/bonus/static_web
+    depends_on:
+      - my_nginx
+    volumes:
+      - ./requirements/bonus/static_web/conf.d:/etc/nginx/conf.d
+      - ./requirements/bonus/static_web/index:/var/www/html
+    ports:
+      - "88:80"
 volumes:
   wordpressV:
   wordpress_db:
