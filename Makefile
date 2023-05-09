@@ -10,6 +10,8 @@ FTP = my_ftp_container
 
 STATIC_WEB = static_web_container
 
+ADMINER = my_adminer_container
+
 all : compose
 
 compose :
@@ -31,12 +33,14 @@ execf :
 	docker exec -it $(FTP) bash
 execs :
 	docker exec -it $(STATIC_WEB) bash
+execa :
+	docker exec -it $(ADMINER) bash
 
 clean :
-	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB)
+	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER)
 
 fclean: clean
-	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB)
+	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER)
 
 vclean: fclean
 	@docker volume rm srcs_wordpressV

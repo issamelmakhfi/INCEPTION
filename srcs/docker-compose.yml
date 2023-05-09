@@ -60,6 +60,16 @@ services:
       - ./requirements/bonus/static_web/index:/var/www/html
     ports:
       - "88:80"
+  my_adminer:
+    container_name: my_adminer_container
+    build: ./requirements/bonus/Adminer
+    networks:
+      - containers_net
+    volumes:
+      - ./requirements/bonus/Adminer/conf.d:/etc/nginx/conf.d
+      - ./requirements/bonus/Adminer/tools:/etc/php/7.4/fpm/pool.d
+    ports:
+      - "87:80"
 volumes:
   wordpressV:
   wordpress_db:
