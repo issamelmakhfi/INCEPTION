@@ -53,8 +53,8 @@ services:
   static_web:
     container_name: static_web_container
     build: ./requirements/bonus/static_web
-    depends_on:
-      - my_nginx
+    # depends_on:
+    #   - my_nginx
     volumes:
       - ./requirements/bonus/static_web/conf.d:/etc/nginx/conf.d
       - ./requirements/bonus/static_web/index:/var/www/html
@@ -62,14 +62,13 @@ services:
       - "88:80"
   my_adminer:
     container_name: my_adminer_container
-    build: ./requirements/bonus/Adminer
+    build: ./requirements/bonus/adminer
+    volumes:
+      - ./requirements/bonus/adminer/conf.d:/etc/nginx/conf.d
+    ports:
+      - "500:81"
     networks:
       - containers_net
-    volumes:
-      - ./requirements/bonus/Adminer/conf.d:/etc/nginx/conf.d
-      - ./requirements/bonus/Adminer/tools:/etc/php/7.4/fpm/pool.d
-    ports:
-      - "87:80"
 volumes:
   wordpressV:
   wordpress_db:
