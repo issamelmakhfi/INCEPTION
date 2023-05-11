@@ -12,6 +12,8 @@ STATIC_WEB = static_web_container
 
 ADMINER = my_adminer_container
 
+NODE = node_container
+
 all : compose
 
 compose :
@@ -35,12 +37,14 @@ execs :
 	docker exec -it $(STATIC_WEB) bash
 execa :
 	docker exec -it $(ADMINER) bash
+execan :
+	docker exec -it $(NODE) bash 
 
 clean :
-	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER)
+	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
 
 fclean: clean
-	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER)
+	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
 
 vclean: fclean
 	@docker volume rm srcs_wordpressV

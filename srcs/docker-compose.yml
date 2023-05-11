@@ -69,6 +69,13 @@ services:
       - "500:81"
     networks:
       - containers_net
+  ansible:
+    container_name: node_container
+    build:  ./requirements/bonus/node
+    networks:
+      - containers_net
+    ports:
+      - "3000:3000"
 volumes:
   wordpressV:
   wordpress_db:
