@@ -50,11 +50,13 @@ services:
     networks:
       - containers_net
     restart: always
+    depends_on:
+      - my_wordpress
+    volumes:
+      - wordpressV:/wordpress
   static_web:
     container_name: static_web_container
     build: ./requirements/bonus/static_web
-    # depends_on:
-    #   - my_nginx
     volumes:
       - ./requirements/bonus/static_web/conf.d:/etc/nginx/conf.d
       - ./requirements/bonus/static_web/index:/var/www/html
@@ -69,7 +71,7 @@ services:
       - "500:81"
     networks:
       - containers_net
-  ansible:
+  nodejs:
     container_name: node_container
     build:  ./requirements/bonus/node
     networks:
