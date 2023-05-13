@@ -1,4 +1,4 @@
-FROM    debian:bullseye
+FROM    debian:buster
 
 RUN     apt-get update && apt install -y wget  \
         && apt-get install -y php-fpm php-mysql
@@ -13,7 +13,7 @@ RUN     chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 RUN     mkdir /run/php
 
-COPY    ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY    ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 COPY    ./tools/theme.zip theme.zip
 
@@ -21,4 +21,4 @@ EXPOSE 9000
 
 ENTRYPOINT [ "bash" , "wp_cmd.sh"]
 
-CMD [ "php-fpm7.4" , "-F"]
+CMD [ "php-fpm7.3" , "-F"]

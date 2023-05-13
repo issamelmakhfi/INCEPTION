@@ -1,7 +1,7 @@
 #!bin/bash
 
 # Starting mariadb service
-service mariadb start
+service mysql start
 #sleep for 1 sec to avoid some message problems
 sleep 1
 
@@ -17,7 +17,7 @@ mariadb -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';"
 mariadb -e "FLUSH PRIVILEGES;"
 
 # Stoping mariadb service to avoid misconfig between process because we need to run mysqld_safe in fourground process
-service mariadb stop
+service mysql stop
 
 # give init process to mysqld_safe script
 exec "$@"

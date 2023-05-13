@@ -18,9 +18,12 @@ wp config set WP_CACHE_KEY_SALT --allow-root ielmakhf.42.fr
 
 wp core install --allow-root --url=ielmakhf.42.fr --title=wordpress --admin_user=wordpress_admin --admin_password=120701A --admin_email=issam.test@gmail.com --path=/var/www/html --skip-email
 
+wp user create ielmakhf ielmakhf@gmail.com --role=editor --user_pass=S!cWSuP4LtHW --allow-root
+
 wp theme install ./theme.zip --activate --allow-root
 
 wp plugin install redis-cache --path=/var/www/html --activate --allow-root
+
 wp redis enable --allow-root
 
 exec "$@"

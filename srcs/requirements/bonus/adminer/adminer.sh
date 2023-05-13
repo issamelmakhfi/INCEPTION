@@ -2,8 +2,8 @@
 
 rm -rf /var/www/html/index.nginx-debian.html
 
-service php7.4-fpm start
+service php7.3-fpm start
 
-# php-fpm7.4 -D
+# php-fpm7.3 -D
 
 exec "$@"

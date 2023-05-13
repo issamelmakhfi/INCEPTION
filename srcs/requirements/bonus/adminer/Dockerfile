@@ -1,8 +1,8 @@
-FROM debian:bullseye
+FROM debian:buster
 
 RUN apt update && apt install -y nginx && apt install -y php-mysql php-fpm && apt install -y wget
 
-# RUN service php7.4-fpm start
+# RUN service php7.3-fpm start
 
 RUN mkdir /var/www/adminer
 
@@ -10,7 +10,7 @@ RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1
 
 COPY ./adminer.sh adminer.sh
 
-# RUN service php7.4-fpm stop 
+# RUN service php7.3-fpm stop 
 
 ENTRYPOINT [ "bash", "./adminer.sh"]
 
