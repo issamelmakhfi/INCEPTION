@@ -1,7 +1,7 @@
 version: '3.6'
 services:
-  my_mariadb:
-    container_name: my_mariadb_container
+  mariadb:
+    container_name: mariadb_container
     build: ./requirements/mariadb
     restart: on-failure
     env_file:
@@ -10,49 +10,49 @@ services:
       - containers_net
     volumes:
       - wordpress_db:/var/lib/mysql/
-  my_wordpress:
-    container_name: my_wordpress_container
+  wordpress:
+    container_name: wordpress_container
     build: ./requirements/wordpress
     volumes:
-      - wordpressV:/var/www/html
+      - wordpress_files:/var/www/html
     depends_on:
-      - my_mariadb
+      - mariadb
     env_file:
       - ./requirements/wordpress/.env
     networks:
       - containers_net
     restart: on-failure
-  my_nginx:
-    container_name: my_nginx_container
+  nginx:
+    container_name: nginx_container
     build: ./requirements/nginx
     ports:
       - "443:443"
     depends_on:
-      - my_wordpress
+      - wordpress
     volumes:
      - ./requirements/nginx/conf.d/:/etc/nginx/conf.d
-     - wordpressV:/var/www/html
+     - wordpress_files:/var/www/html
     networks:
       - containers_net
     restart: on-failure
-  my_redis:
-    container_name: my_redis_container
+  redis:
+    container_name: redis_container
     build: ./requirements/bonus/redis_cach
     networks:
       - containers_net
     ports:
       - "6379:6379"
     restart: on-failure
-  my_ftp:
-    container_name: my_ftp_container
+  ftp:
+    container_name: ftp_container
     build: ./requirements/bonus/ftp
     networks:
       - containers_net
     restart: on-failure
     depends_on:
-      - my_wordpress
+      - wordpress
     volumes:
-      - wordpressV:/wordpress
+      - wordpress_files:/wordpress
   static_web:
     container_name: static_web_container
     build: ./requirements/bonus/static_web
@@ -61,8 +61,8 @@ services:
       - ./requirements/bonus/static_web/index:/var/www/html
     ports:
       - "88:80"
-  my_adminer:
-    container_name: my_adminer_container
+  adminer:
+    container_name: adminer_container
     build: ./requirements/bonus/adminer
     volumes:
       - ./requirements/bonus/adminer/conf.d:/etc/nginx/conf.d
@@ -78,7 +78,7 @@ services:
     ports:
       - "3000:3000"
 volumes:
-  wordpressV:
+  wordpress_files:
   wordpress_db:
 networks:
   containers_net:

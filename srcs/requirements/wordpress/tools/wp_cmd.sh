@@ -12,13 +12,13 @@ wp config set DB_USER --allow-root $WORDPRESS_DB_USER
 wp config set DB_PASSWORD --allow-root $WORDPRESS_DB_PASSWORD 
 
 
-wp config set WP_REDIS_HOST --allow-root my_redis
-wp config set WP_REDIS_PORT --allow-root 6379
-wp config set WP_CACHE_KEY_SALT --allow-root ielmakhf.42.fr
+wp config set WP_REDIS_HOST --allow-root $REDIS_HOST
+wp config set WP_REDIS_PORT --allow-root $REDIS_PORT
+wp config set WP_CACHE_KEY_SALT --allow-root $DOMAINE_NAME
 
-wp core install --allow-root --url=ielmakhf.42.fr --title=wordpress --admin_user=wordpress_admin --admin_password=120701A --admin_email=issam.test@gmail.com --path=/var/www/html --skip-email
+wp core install --allow-root --url=$DOMAINE_NAME --title=wordpress --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --path=/var/www/html --skip-email
 
-wp user create ielmakhf ielmakhf@gmail.com --role=editor --user_pass=S!cWSuP4LtHW --allow-root
+wp user create $USER $EMAIL --role=$ROLE --user_pass=$USER_PASSWORD --allow-root
 
 wp theme install ./theme.zip --activate --allow-root
 

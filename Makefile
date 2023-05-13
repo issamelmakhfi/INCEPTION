@@ -1,16 +1,16 @@
-NGINX = my_nginx_container
+NGINX = nginx_container
 
-WORDPRESS = my_wordpress_container
+WORDPRESS = wordpress_container
 
-DB = my_mariadb_container
+DB = mariadb_container
 
-REDIS = my_redis_container
+REDIS = redis_container
 
-FTP = my_ftp_container
+FTP = ftp_container
 
 STATIC_WEB = static_web_container
 
-ADMINER = my_adminer_container
+ADMINER = adminer_container
 
 NODE = node_container
 
@@ -47,7 +47,7 @@ fclean: clean
 	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
 
 vclean: fclean
-	@docker volume rm srcs_wordpressV
+	@docker volume rm srcs_wordpress_files
 	@docker volume rm srcs_wordpress_db
 	@docker network rm srcs_containers_net
 	@# docker system prune -a

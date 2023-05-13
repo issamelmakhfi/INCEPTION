@@ -48,7 +48,7 @@ Stack trace:
 2023/04/27 14:38:53 [error] 9#9: *2 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/wp-admin/install.php"
 2023/04/27 14:54:04 [error] 7#7: *7 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:9999", referrer: "http://localhost:9999/wp-admin/install.php"
 2023/04/27 15:31:43 [error] 8#8: *5 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.28.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:4433", referrer: "http://localhost:4433/wp-admin/install.php"
-2023/04/27 15:34:07 [emerg] 1#1: host not found in upstream "my_wordpress" in /etc/nginx/conf.d/default.conf:21
+2023/04/27 15:34:07 [emerg] 1#1: host not found in upstream "wordpress" in /etc/nginx/conf.d/default.conf:21
 2023/04/27 15:47:28 [emerg] 1#1: host not found in upstream "ielmakhf" in /etc/nginx/conf.d/default.conf:21
 2023/04/27 21:48:24 [error] 9#9: *6 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:4433", referrer: "http://localhost:4433/wp-admin/install.php"
 2023/04/27 22:05:36 [error] 9#9: *7 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.23.0.1, server: ielmakhf.com, request: "GET /favicon.ico HTTP/1.1", host: "ielmakhf.com:4433", referrer: "http://ielmakhf.com:4433/wp-admin/install.php"
