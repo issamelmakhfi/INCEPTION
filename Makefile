@@ -1,18 +1,18 @@
-NGINX = nginx_container
+NGINX		= nginx_container
 
-WORDPRESS = wordpress_container
+WORDPRESS	= wordpress_container
 
-DB = mariadb_container
+DB			= mariadb_container
 
-REDIS = redis_container
+REDIS		= redis_container
 
-FTP = ftp_container
+FTP			= ftp_container
 
-STATIC_WEB = static_web_container
+STATIC_WEB	= static_web_container
 
-ADMINER = adminer_container
+ADMINER		= adminer_container
 
-NODE = node_container
+NODE		= node_container
 
 all : compose
 
@@ -29,14 +29,19 @@ execw :
 
 execm :
 	docker exec -it $(DB) bash
+
 execr :
 	docker exec -it $(REDIS) bash
+
 execf :
 	docker exec -it $(FTP) bash
+
 execs :
 	docker exec -it $(STATIC_WEB) bash
+
 execa :
 	docker exec -it $(ADMINER) bash
+
 execan :
 	docker exec -it $(NODE) bash 
 
@@ -50,4 +55,3 @@ vclean: fclean
 	@docker volume rm srcs_wordpress_files
 	@docker volume rm srcs_wordpress_db
 	@docker network rm srcs_containers_net
-	@# docker system prune -a

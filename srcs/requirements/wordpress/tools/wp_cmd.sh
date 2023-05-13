@@ -22,7 +22,7 @@ wp user create $USER $EMAIL --role=$ROLE --user_pass=$USER_PASSWORD --allow-root
 
 wp theme install ./theme.zip --activate --allow-root
 
-wp plugin install redis-cache --path=/var/www/html --activate --allow-root
+wp plugin install $REDIS_PLUGIN --path=/var/www/html --activate --allow-root
 
 wp redis enable --allow-root
 
