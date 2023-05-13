@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.5'
 services:
   mariadb:
     container_name: mariadb_container
@@ -79,7 +79,15 @@ services:
       - "3000:3000"
 volumes:
   wordpress_files:
+      driver_opts:
+        type: none
+        o: bind
+        device: /home/issam/data/wordpress
   wordpress_db:
+      driver_opts:
+        type: none
+        o: bind
+        device: /home/issam/data/wordpress
 networks:
   containers_net:
     driver: bridge
