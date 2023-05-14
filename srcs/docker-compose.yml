@@ -79,15 +79,17 @@ services:
       - "3000:3000"
 volumes:
   wordpress_files:
+      driver: local
       driver_opts:
         type: none
         o: bind
-        device: /home/issam/data/wordpress
+        device: /home/ielmakhf/data/wordpress
   wordpress_db:
+      driver: local
       driver_opts:
         type: none
         o: bind
-        device: /home/issam/data/wordpress
+        device: /home/ielmakhf/data/mariadb
 networks:
   containers_net:
     driver: bridge

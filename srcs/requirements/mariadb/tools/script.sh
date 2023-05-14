@@ -6,7 +6,7 @@ if [ ! -d "/var/lib/mysql/$DB_NAME" ]
 then
 # Starting mariadb service
 /etc/init.d/mysql start
-sleep for 1 sec to avoid some message problems
+# sleep for 1 sec to avoid some message problems
 sleep 1
 
 mariadb -e "GRANT ALL ON *.* to root@'localhost' IDENTIFIED BY '$ROOT_PASS';"

@@ -17,8 +17,8 @@ NODE		= node_container
 all : compose
 
 compose :
-	@sudo mkdir -p /home/issam/data/wordpress
-	# @sudo mkdir -p /home/ielmakhf/_dara/mariadb
+	@sudo mkdir -p /home/ielmakhf/data/wordpress
+	@sudo mkdir -p /home/ielmakhf/data/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --build -d
 
 re : vclean all
