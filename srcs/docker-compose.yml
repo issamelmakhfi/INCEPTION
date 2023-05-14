@@ -92,4 +92,3 @@ volumes:
         device: /home/ielmakhf/data/mariadb
 networks:
   containers_net:
-    driver: bridge

@@ -12,8 +12,4 @@ RUN apt-get update && apt-get install -y curl && apt -y install nginx \
 # run the script to generate CA
 RUN bash script.sh
 
-# Copy nginx config file that already add SSL to nginx
-# COPY ./default.conf /etc/nginx/sites-enabled/default
-# COPY ./index.html /usr/share/nginx/
-
 ENTRYPOINT  ["nginx", "-g", "daemon off;"]

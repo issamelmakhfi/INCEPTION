@@ -18,9 +18,7 @@ all : compose
 
 compose :
 	@sudo mkdir -p /home/ielmakhf/data/wordpress
-	# @sudo chmod +x /home/ielmakhf/data/wordpress
 	@sudo mkdir -p /home/ielmakhf/data/mariadb
-	# @sudo chmod +x /home/ielmakhf/data/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --build -d
 
 re : vclean all
