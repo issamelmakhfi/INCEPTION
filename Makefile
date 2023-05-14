@@ -54,6 +54,7 @@ clean :
 
 fclean: clean
 	docker rm $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
+	sudo rm -rf /home/ielmakhf
 
 vclean: fclean
 	@docker volume rm srcs_wordpress_files
