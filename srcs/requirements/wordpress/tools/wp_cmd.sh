@@ -1,10 +1,10 @@
 #!/bin/bash
 
-wp core download --allow-root 
-
+wp core download --allow-root
 
 cat wp-config-sample.php > wp-config.php && chmod +x wp-config.php
 
+sleep 5
 
 wp config set DB_NAME --allow-root $WORDPRESS_DB_NAME
 wp config set DB_HOST --allow-root $WORDPRESS_DB_HOST
@@ -25,5 +25,7 @@ wp theme install ./theme.zip --activate --allow-root
 wp plugin install $REDIS_PLUGIN --path=/var/www/html --activate --allow-root
 
 wp redis enable --allow-root
+
+# fi
 
 exec "$@"

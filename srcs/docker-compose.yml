@@ -9,7 +9,7 @@ services:
     networks:
       - containers_net
     volumes:
-      - wordpress_db:/var/lib/mysql/
+      - wordpress_db:/var/lib/mysqld
   wordpress:
     container_name: wordpress_container
     build: ./requirements/wordpress

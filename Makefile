@@ -47,6 +47,9 @@ execa :
 execan :
 	docker exec -it $(NODE) bash 
 
+down :
+	docker compose down -f ./srcs/docker-compose.yml
+
 clean :
 	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
 
