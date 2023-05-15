@@ -21,6 +21,10 @@ compose :
 	@sudo mkdir -p /home/ielmakhf/data/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --build -d
 
+down :
+	docker compose -f ./srcs/docker-compose.yml down
+up :
+	docker compose -f ./srcs/docker-compose.yml up -d
 re : vclean all
 
 execn :
@@ -46,9 +50,6 @@ execa :
 
 execan :
 	docker exec -it $(NODE) bash 
-
-down :
-	docker compose down -f ./srcs/docker-compose.yml
 
 clean :
 	docker stop $(NGINX) $(DB) $(WORDPRESS) $(REDIS) $(FTP) $(STATIC_WEB) $(ADMINER) $(NODE)
