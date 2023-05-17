@@ -26,6 +26,4 @@ wp plugin install $REDIS_PLUGIN --path=/var/www/html --activate --allow-root
 
 wp redis enable --allow-root
 
-# fi
-
 exec "$@"

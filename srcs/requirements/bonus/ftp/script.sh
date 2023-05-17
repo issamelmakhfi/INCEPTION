@@ -1,11 +1,7 @@
 #!/bin/bash
 
-
 mkdir -p wordpress
 chown nobody:nogroup wordpress
-echo "vsftpd test file" | tee wordpress/test.log
-mkdir wordpress/maps/
-chmod a+rwx wordpress/maps/
 
 #to allow anonymous access
 sed -i 's/anonymous_enable=NO/anonymous_enable=YES/g' /etc/vsftpd.conf
@@ -27,4 +23,4 @@ echo "hide_ids=YES" >> /etc/vsftpd.conf
 # limits the range of ports that can be used for passive FTP
 echo "pasv_min_port=40000" >> /etc/vsftpd.conf
 echo "pasv_max_port=50000" >> /etc/vsftpd.conf
-echo "anon_umask=022" >> /etc/vsftpd.conf
+# echo "anon_umask=022" >> /etc/vsftpd.conf

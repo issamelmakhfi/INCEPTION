@@ -24,7 +24,7 @@ compose :
 down :
 	docker compose -f ./srcs/docker-compose.yml down
 up :
-	docker compose -f ./srcs/docker-compose.yml up -d
+	docker compose -f ./srcs/docker-compose.yml up 
 re : vclean all
 
 execn :
